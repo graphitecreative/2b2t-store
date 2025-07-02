@@ -1,30 +1,8 @@
 <template>
-    <div class="layout layout--default">
+    <div class="container">
         <Header />
-
-        <MenuSidebar />
-
-        <CartSidebar />
-
-        <div class="w-100 container--fluid">
-            <slot />
-        </div>
-
-        <Footer />
+        <slot />
     </div>
+
+    <Footer />
 </template>
-
-<style lang="scss" scoped>
-@use "~/assets/styles/settings" as *;
-
-.layout {
-    position: relative;
-    &--default {
-        display: flex;
-        flex-direction: column;
-        justify-content: space-between;
-        align-items: center;
-        min-height: 100vh;
-    }
-}
-</style>

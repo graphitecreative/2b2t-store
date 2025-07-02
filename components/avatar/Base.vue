@@ -20,17 +20,3 @@ const styles = computed(() => ({
     height: props.height + "px",
 }));
 </script>
-
-<style lang="scss" scoped>
-.avatar {
-    position: relative;
-    border-radius: 50%;
-    overflow: hidden;
-
-    img {
-        margin-top: 3px;
-        width: 24px;
-        margin: 0 auto;
-    }
-}
-</style>

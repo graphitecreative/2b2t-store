@@ -38,17 +38,3 @@ const src = computed(() => {
     return props.username ? loggedInAvatar.value : loggedOutAvatar.value;
 });
 </script>
-
-<style lang="scss" scoped>
-.avatar {
-    position: relative;
-    border-radius: 50%;
-    overflow: hidden;
-
-    img {
-        margin-top: 3px;
-        width: 24px;
-        margin: 0 auto;
-    }
-}
-</style>

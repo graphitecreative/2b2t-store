@@ -1,48 +1,27 @@
 <template>
-    <Sidebar v-model="isActive">
-        <template #header>
-            <Button
-                class="cart__close"
-                variant="clear"
-                @click="uiStore.toggleItem('cart-sidebar')"
-                icon="close"
-            ></Button>
+    <div>
+        <Button class="cart__close" variant="clear" @click="uiStore.toggleItem('cart-sidebar')" icon="close"></Button>
 
-            <h4 class="cart__title">
-                {{ $t("cart.title") }}
-            </h4>
-        </template>
+        <h4 class="cart__title">
+            {{ $t("cart.title") }}
+        </h4>
 
-        <Cart
-            :items="basketStore.basket?.packages ?? []"
-            :items-loading="basketStore.packagesLoading"
-            @remove="basketStore.removePackageFromBasket($event)"
-        />
+        <Cart :items="basketStore.basket?.packages ?? []" :items-loading="basketStore.packagesLoading"
+            @remove="basketStore.removePackageFromBasket($event)" />
 
-        <template #actions>
-            <div
-                v-if="basketStore.basket?.total_price"
-                class="cart__total d-flex justify-space-between my-6"
-            >
-                <span>{{ $t("cart.total") }}</span>
-                <span>
-                    {{ $n(basketStore.basket.total_price, "currency") }}
-                </span>
-            </div>
+        <div v-if="basketStore.basket?.total_price" class="cart__total d-flex justify-space-between my-6">
+            <span>{{ $t("cart.total") }}</span>
+            <span>
+                {{ $n(basketStore.basket.total_price, "currency") }}
+            </span>
+        </div>
 
-            <Button
-                :disabled="
-                    !basketStore.basket?.ident ||
-                    basketStore.basket.packages.length === 0
-                "
-                @click="checkout"
-                block
-                variant="success"
-            >
-                {{ $t("buttons.checkout") }}
-            </Button>
-        </template>
-    </Sidebar>
+        <Button :disabled="!basketStore.basket?.ident ||
+            basketStore.basket.packages.length === 0
+            " @click="checkout" block variant="success">
+            {{ $t("buttons.checkout") }}
+        </Button>
+    </div>
 </template>
 
 <script setup lang="ts">
@@ -162,22 +141,3 @@ if (appConfig.showCartOnAdd) {
     );
 }
 </script>
-
-<style lang="scss" scoped>
-@use "~/assets/styles/settings" as *;
-
-.cart__title {
-    margin-inline: auto;
-    font-weight: bold;
-    color: $c-800;
-}
-
-.cart__close {
-    position: absolute;
-    color: $c-800;
-}
-
-.cart__total {
-    font-size: 1.5rem;
-}
-</style>

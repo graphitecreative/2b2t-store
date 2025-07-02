@@ -25,14 +25,8 @@
                 }}
             </span>
 
-            <Button
-                class="cart-item__remove"
-                size="sm"
-                @click="emit('remove', item.id)"
-                :loading="loading"
-                variant="clear"
-                icon="remove"
-            >
+            <Button class="cart-item__remove" size="sm" @click="emit('remove', item.id)" :loading="loading"
+                variant="clear" icon="remove">
             </Button>
         </div>
     </div>
@@ -52,81 +46,3 @@ const emit = defineEmits<{
     remove: [id: number];
 }>();
 </script>
-
-<style lang="scss" scoped>
-@use "~/assets/styles/settings" as *;
-@use "~/assets/styles/tools";
-
-.cart-item {
-    display: flex;
-    align-items: center;
-    padding: 16px;
-    width: 100%;
-    border-bottom: $border-bottom;
-    background-color: $cart-item-bg;
-    border-radius: $cart-item-border-radius;
-    @include tools.text-contrast($cart-item-bg);
-
-    &__name {
-        font-size: $cart-item-name-font-size;
-        font-weight: $cart-item-name-font-weight;
-        margin: 0;
-    }
-
-    &__image {
-        width: $cart-item-image-size;
-        height: $cart-item-image-size;
-        border-radius: $cart-item-image-border-radius;
-        overflow: hidden;
-        margin-right: 16px;
-        background-color: $cart-item-image-bg;
-        padding: $cart-item-image-padding;
-
-        img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
-    }
-
-    &__content {
-        flex-grow: 1;
-
-        h4 {
-            margin: 0 0 8px;
-        }
-
-        p:first-of-type {
-            margin: 0;
-        }
-    }
-
-    &__actions {
-        display: flex;
-        align-items: center;
-    }
-
-    &__quantity {
-        color: $cart-item-quantity-color;
-        font-size: 18px;
-    }
-
-    &__remove {
-        color: $cart-item-delete-color;
-    }
-
-    &__gift-user {
-        color: $cart-item-gift-user-color;
-        font-size: $cart-item-gift-user-font-size;
-        margin-top: $cart-item-gift-user-margin-top;
-
-        & > span {
-            font-weight: bold;
-
-            & > span {
-                font-weight: normal;
-            }
-        }
-    }
-}
-</style>

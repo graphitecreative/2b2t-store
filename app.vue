@@ -1,4 +1,5 @@
 <template>
+
     <Head>
         <link rel="icon" type="image/x-icon" href="/favicon.png" />
     </Head>
@@ -14,7 +15,8 @@
 </template>
 
 <script lang="ts" setup>
-import "~/assets/styles/main.scss";
+
+import "~/assets/styles/main.css";
 import { isClient } from "@vueuse/core";
 
 const appConfig = useAppConfig();
